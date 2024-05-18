@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Favorite Food</title>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<div id="content" class="center">
+  <div>
+    <h1>What's your favorite food?</h1>
+
+    <form id="myForm">
+      <label for="foodInput">Tell us!</label><br>
+      <input type="text" id="foodInput" name="food" required><br><br>
+      <input type="button" value="Submit" onclick="submitFood()">
+    </form>
+
+  </div>
+</div>
+
+<script>
+function submitFood() {
+  // Get the user's favorite food
+  var favoriteFood = document.getElementById('foodInput').value;
+
+  // Build the thank you message with user input
+  var thankYouMessage = document.createElement('div');
+  thankYouMessage.innerHTML = "<h1>Thanks for sharing!</h1><p>Your favorite food is " + favoriteFood + ".</p>";
+
+  // Clear the existing content but keep the centering
+  var contentDiv = document.getElementById('content');
+  contentDiv.innerHTML = ''; // Clear the existing content
+  contentDiv.appendChild(thankYouMessage); // Append the new content
+}
+</script>
+
+</body>
+</html>
